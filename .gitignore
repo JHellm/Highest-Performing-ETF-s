@@ -33,4 +33,4 @@ etfs.sort(key=lambda x: x.performance)
 print("The top performing ETFs are:")
 for etf in etfs[:10]:
   print(etf.name, etf.performance)
-  print!
+
