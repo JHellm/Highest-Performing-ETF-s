@@ -21,3 +21,30 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+// Create an array of ETFs 
+let etfs = ["SPY", "QQQ", "VOO", "EFA", "VTI"];
+
+// Create an object to store the data
+let etfData = {};
+
+// Loop through the array and make an API call for each ETF
+for (let i = 0; i < etfs.length; i++) {
+  let etf = etfs[i];
+  let url = `https://api.etfdata.com/v1/${etf}`;
+  
+  // Make API call and store the data in the object
+  let response = fetch(url).then(res => res.json()).then(data => {
+    etfData[etf] = data;
+  });
+}
+
+// Compare the ETF performance and identify the highest performing ETF 
+let highestPerformingETF = '';
+let highestPerformance = 0;
+
+for (let etf in etfData) {
+  let performance = etfData[etf].performance;
+  if (performance > highestPerformance) {
+    highestPerformance = performance;
+    highestPer
+  
